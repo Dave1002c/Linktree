@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Your Linktree — Animated & Unique Visitor Count</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html,body { height: 100%; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: linear-gradient(135deg,#0f172a 0%, #0b1220 50%, #071230 100%); color: #fff; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+
+  .wrap {
+    min-height: 100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 32px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 760px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    border-radius: 18px;
+    padding: 34px;
+    box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.03);
+    transform-origin: center;
+    animation: rise 0.9s cubic-bezier(.15,.8,.25,1);
+  }
+
+  @keyframes rise {
+    from { transform: translateY(16px) scale(.995); opacity:0; }
+    to { transform: translateY(0) scale(1); opacity:1; }
+  }
+
+  .header {
+    display:flex;
+    gap:16px;
+    align-items:center;
+    margin-bottom: 18px;
+  }
+
+  .avatar {
+    width:72px; height:72px; border-radius: 14px;
+    background: linear-gradient(135deg,#ff7ad1 0%, #6ea8ff 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-size:26px;
+    box-shadow: 0 8px 30px rgba(110,138,255,0.12);
+  }
+
+  .title {
+    display:flex; flex-direction:column;
+  }
+  .title h1 { font-size:20px; letter-spacing: -0.02em; margin-bottom:4px; }
+  .title p { font-size:13px; color: rgba(255,255,255,0.75); }
+
+  .links {
+    display:grid;
+    gap:12px;
+    margin-top:18px;
+  }
+
+  .btn {
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px;
+    padding: 14px 18px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    border-radius: 12px;
+    text-decoration:none;
+    color:inherit;
+    border: 1px solid rgba(255,255,255,0.03);
+    transition: transform .22s cubic-bezier(.2,.9,.3,1), box-shadow .22s;
+    transform-origin: left;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.5);
+  }
+
+  .btn:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 18px 46px rgba(2,6,23,0.6); }
+  .btn .left { display:flex; align-items:center; gap:12px; }
+  .icon {
+    width:44px; height:44px; border-radius:10px; display:inline-flex; align-items:center; justify-content:center; font-weight:700;
+    background: linear-gradient(135deg,#fff2 0%, #ffffff10 100%);
+    font-size:18px;
+  }
+
+  .desc { font-size:14px; color: rgba(255,255,255,0.9); }
+  .meta { font-size:12px; color: rgba(255,255,255,0.65); }
+
+  .btn { opacity:0; transform: translateY(18px) scale(.99); animation: comeUp .6s forwards cubic-bezier(.2,.9,.3,1); }
+  .btn:nth-child(1){ animation-delay: 0.12s; }
+  .btn:nth-child(2){ animation-delay: 0.22s; }
+  .btn:nth-child(3){ animation-delay: 0.32s; }
+  .btn:nth-child(4){ animation-delay: 0.42s; }
+  @keyframes comeUp { to { opacity:1; transform: translateY(0) scale(1);} }
+
+  .footer {
+    margin-top:18px; display:flex; justify-content:space-between; align-items:center;
+  }
+  .counter {
+    background: linear-gradient(90deg,#111827 0%, #0b1220 100%);
+    padding: 8px 12px; border-radius: 999px; font-weight:600; font-size:13px; color:#e6eefc;
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 6px 18px rgba(4,8,15,0.6);
+  }
+
+  .pulse {
+    animation: pulse 1s ease-out;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(110,138,255,0.4); }
+    70% { transform: scale(1.06); box-shadow: 0 0 0 18px rgba(110,138,255,0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(110,138,255,0); }
+  }
+
+  @media (max-width:520px){
+    .card { padding: 20px; border-radius: 14px; }
+    .avatar { width:56px; height:56px; }
+  }
+
+  .btn:focus { outline: 3px solid rgba(110,138,255,0.18); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="card" role="main" aria-labelledby="profile-name">
+      <header class="header">
+        <div class="avatar" aria-hidden="true">D</div>
+        <div class="title">
+          <h1 id="profile-name">Dave</h1>
+          <p>Choose a link</p>
+        </div>
+      </header>
+
+      <section class="links" aria-label="links">
+        <a class="btn" href="https://www.tiktok.com/@dave_1002c" target="_blank" rel="noopener noreferrer">
+          <div class="left">
+            <div class="icon">T</div>
+            <div>
+              <div class="desc">Tiktok</div>
+              <div class="meta">Follow me on Tiktok</div>
+            </div>
+          </div>
+          <div>→</div>
+        </a>
+
+        <a class="btn" href="https://github.com/Dave1002c" target="_blank" rel="noopener noreferrer">
+          <div class="left">
+            <div class="icon">G</div>
+            <div>
+              <div class="desc">GitHub</div>
+              <div class="meta">Open-source projects including this linktree</div>
+            </div>
+          </div>
+          <div>→</div>
+        </a>
+        
+        <div class="custom-text">
+             Discord: <strong>Dave_1002</strong>
+        </div>
+
+      <div class="footer">
+        <div style="font-size:13px; color:rgba(255,255,255,0.7)">my first html project hope you like it</div>
+        <div id="viewer" class="counter" aria-live="polite">Visitors: —</div>
+      </div>
+    </main>
+  </div>
+
+<script>
+  async function registerVisit() {
+    try {
+      const res = await fetch('/api/visit', { cache: 'no-store' });
+      if (!res.ok) throw new Error('Network error');
+      const data = await res.json();
+      updateCounter(data.count, data.counted);
+    } catch (err) {
+      console.error('visit error', err);
+      // fallback: try /api/count
+      try {
+        const res2 = await fetch('/api/count');
+        const d2 = await res2.json();
+        updateCounter(d2.count, false);
+      } catch (e) {
+        document.getElementById('viewer').textContent = 'Visitors: ?';
+      }
+    }
+  }
+
+  function updateCounter(count, counted) {
+    const el = document.getElementById('viewer');
+    el.textContent = 'Visitors: ' + count;
+    if (counted) {
+      el.classList.remove('pulse');
+      void el.offsetWidth;
+      el.classList.add('pulse');
+    }
+  }
+
+  window.addEventListener('load', () => {
+    registerVisit();
+  });
+</script>
+</body>
+</html>
