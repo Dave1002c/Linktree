@@ -1,17 +1,17 @@
 // server.js
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
-const crypto = require('crypto');
-
-const DB_PATH = path.join(__dirname, 'visitors.db');
+const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-app.use(cookieParser());
-app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+// Use Railway's assigned port or fallback to 8080 locally
+const PORT = process.env.PORT || 8080;
+
+app.get("/", (req, res) => {
+  res.send("Hello, world!");
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
 
 // init DB
 const db = new sqlite3.Database(DB_PATH);
@@ -87,3 +87,4 @@ app.get('/api/count', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
+
