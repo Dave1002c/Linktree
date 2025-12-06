@@ -3,7 +3,8 @@ const express = require("express");
 const app = express();
 
 // Use Railway's assigned port or fallback to 8080 locally
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
+
 
 app.get("/", (req, res) => {
   res.send("Hello, world!");
@@ -87,4 +88,5 @@ app.get('/api/count', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
+
 
